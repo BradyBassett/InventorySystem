@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="c482performanceassessment.controllers.PartFormController">
+   <top>
+      <Label fx:id="partFormTitle" alignment="CENTER" contentDisplay="CENTER" prefHeight="57.0" prefWidth="833.0" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="55.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="338.0" layoutY="16.0" mnemonicParsing="false" onAction="#onAddSave" prefHeight="25.0" prefWidth="52.0" text="Save" />
+            <Button layoutX="410.0" layoutY="16.0" mnemonicParsing="false" onAction="#switchToMainScene" text="Cancel" />
+         </children></AnchorPane>
+   </bottom>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <RadioButton fx:id="inHouse" layoutX="180.0" layoutY="49.0" mnemonicParsing="false" onAction="#radioButtonSelector" selected="true" text="In-House">
+               <toggleGroup>
+                  <ToggleGroup fx:id="partGroup" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="outsourced" layoutX="289.0" layoutY="49.0" mnemonicParsing="false" onAction="#radioButtonSelector" prefHeight="17.0" prefWidth="100.0" text="Outsourced" toggleGroup="$partGroup" />
+            <Label layoutX="181.0" layoutY="92.0" text="ID" />
+            <TextField fx:id="partId" disable="true" editable="false" layoutX="275.0" layoutY="88.0" opacity="0.4" prefHeight="17.0" prefWidth="115.0" promptText="Auto Gen- Disabled" />
+            <Label layoutX="181.0" layoutY="127.0" text="Name" />
+            <TextField fx:id="partName" layoutX="275.0" layoutY="123.0" prefHeight="17.0" prefWidth="115.0" />
+            <Label layoutX="181.0" layoutY="163.0" text="Inventory" />
+            <TextField fx:id="partInventory" layoutX="275.0" layoutY="159.0" prefHeight="17.0" prefWidth="115.0" />
+            <Label layoutX="181.0" layoutY="197.0" text="Price" />
+            <TextField fx:id="partPrice" layoutX="275.0" layoutY="193.0" prefHeight="17.0" prefWidth="115.0" />
+            <Label layoutX="181.0" layoutY="231.0" text="Max Inventory" />
+            <TextField fx:id="partMaxInventory" layoutX="275.0" layoutY="227.0" prefHeight="17.0" prefWidth="115.0" />
+            <Label layoutX="410.0" layoutY="231.0" text="Min Inventory" />
+            <TextField fx:id="partMinInventory" layoutX="505.0" layoutY="227.0" prefHeight="17.0" prefWidth="115.0" />
+            <Label fx:id="machineIdLabel" layoutX="181.0" layoutY="265.0" text="Machine ID" />
+            <TextField fx:id="machineId" layoutX="275.0" layoutY="261.0" prefHeight="17.0" prefWidth="115.0" />
+            <Label fx:id="companyNameLabel" layoutX="181.0" layoutY="265.0" text="Company Name" visible="false" />
+            <TextField fx:id="companyName" layoutX="275.0" layoutY="261.0" prefHeight="17.0" prefWidth="115.0" visible="false" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
