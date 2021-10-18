@@ -186,10 +186,16 @@ public class MainFormController extends BaseFormController implements Initializa
     private void onProductDelete() {
         Product product = productTable.getSelectionModel().getSelectedItem();
         Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to delete this product?");
+        Alert errorAlert = new Alert(Alert.AlertType.ERROR, "This product still contains one or more part associations, " +
+                "please first remove all associated parts and try again.");
         if (product != null) {
-            Optional<ButtonType> deleteConfirmation = confirmationAlert.showAndWait();
-            if (deleteConfirmation.isPresent() && deleteConfirmation.get() == ButtonType.OK) {
-                Inventory.removeProductsInventory(product);
+            if (product.getAssociatedParts().size() == 0) {
+                Optional<ButtonType> deleteConfirmation = confirmationAlert.showAndWait();
+                if (deleteConfirmation.isPresent() && deleteConfirmation.get() == ButtonType.OK) {
+                    Inventory.removeProductsInventory(product);
+                }
+            } else {
+                errorAlert.showAndWait();
             }
         }
     }
